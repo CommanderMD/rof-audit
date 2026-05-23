@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onboarding Review — The Reality of Fitness × Tech Smart Inc.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#ECEAE4; --paper:#F6F4EF; --ink:#141210; --ink-2:#3A3733;
+  --muted:#6E6A63; --oxblood:#7A1414; --red:#E11414; --white:#fff;
+  --line:rgba(20,18,16,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Archivo',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+.narrow{font-family:'Archivo Narrow',sans-serif;}
+
+/* top bar */
+.bar{background:var(--ink);color:var(--cream);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;}
+.bar .mark{font-weight:900;letter-spacing:0.2em;}
+.bar .mark span{color:var(--red);}
+.bar .meta{opacity:0.6;font-size:11px;}
+
+/* header */
+.head{padding:60px 40px 44px;text-align:center;border-bottom:1px solid var(--line);background:var(--paper);}
+.head .eyebrow{font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.head h1{font-size:clamp(30px,5vw,52px);font-weight:900;letter-spacing:-0.02em;line-height:1.02;margin-bottom:14px;}
+.head h1 .red{color:var(--red);}
+.head p{max-width:60ch;margin:0 auto;color:var(--ink-2);font-size:16px;}
+.head .meta-row{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;margin-top:24px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+.head .meta-row strong{color:var(--ink);font-weight:700;margin-left:6px;}
+
+/* form body */
+.body{max-width:760px;margin:0 auto;padding:56px 40px 90px;}
+@media(max-width:600px){.body{padding:44px 20px 70px;}}
+
+.section{margin-bottom:52px;}
+.section-num{font-size:46px;font-weight:900;color:var(--red);line-height:1;letter-spacing:-0.03em;}
+.section-title{font-size:25px;font-weight:800;letter-spacing:-0.01em;margin:4px 0 6px;}
+.section-desc{font-size:14px;color:var(--muted);margin-bottom:26px;max-width:60ch;}
+
+.field{margin-bottom:22px;}
+.field-label{display:block;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;}
+.field-helper{display:block;font-size:12px;color:var(--muted);margin-top:6px;font-style:italic;}
+.fi,.ft,.fs{width:100%;padding:12px 14px;border:1px solid var(--line);background:var(--white);font-family:'Archivo',sans-serif;font-size:14px;color:var(--ink);border-radius:3px;transition:border-color .2s,box-shadow .2s;}
+.fi:focus,.ft:focus,.fs:focus{outline:none;border-color:var(--oxblood);box-shadow:0 0 0 3px rgba(122,20,20,0.08);}
+.ft{min-height:80px;resize:vertical;}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:540px){.row{grid-template-columns:1fr;}}
+
+.pill-row{display:flex;gap:8px;flex-wrap:wrap;}
+.pill{padding:9px 16px;border:1px solid var(--line);background:var(--white);border-radius:100px;font-size:13px;cursor:pointer;transition:all .2s;}
+.pill input{display:none;}
+.pill.active{background:var(--ink);color:var(--white);border-color:var(--ink);}
+
+.submit-row{margin-top:50px;padding-top:30px;border-top:1px solid var(--line);}
+.submit-btn{width:100%;padding:18px;background:var(--ink);color:var(--white);border:none;font-family:'Archivo',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;border-radius:3px;cursor:pointer;transition:background .2s;}
+.submit-btn:hover{background:var(--oxblood);}
+.submit-note{text-align:center;font-size:12px;color:var(--muted);margin-top:12px;font-style:italic;}
+
+/* success overlay */
+.ok{display:none;position:fixed;inset:0;background:linear-gradient(135deg,var(--oxblood),var(--red));z-index:9999;align-items:center;justify-content:center;padding:40px;animation:fade .5s ease;}
+.ok.show{display:flex;}
+@keyframes fade{from{opacity:0;}to{opacity:1;}}
+.ok-in{text-align:center;color:#fff;max-width:520px;}
+.ok-check{width:70px;height:70px;border-radius:50%;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 24px;}
+.ok h2{font-size:40px;font-weight:900;margin-bottom:14px;letter-spacing:-0.02em;}
+.ok p{font-size:16px;opacity:0.92;margin-bottom:28px;}
+.ok .mk{font-size:12px;font-weight:800;letter-spacing:0.22em;opacity:0.7;}
+
+.foot{text-align:center;padding:26px 40px;border-top:1px solid var(--line);background:var(--paper);font-size:11px;color:var(--muted);letter-spacing:0.05em;}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="mark">TECH SMART INC. <span>·</span> MANAGED SERVICES</div>
+  <div class="meta">Onboarding Review · 2026</div>
+</div>
+
+<div class="head">
+  <div class="eyebrow">Prepared for Issac D. Coleman · The Reality of Fitness</div>
+  <h1>Your Systems <span class="red">Onboarding</span> Review</h1>
+  <p>A quick walk-through of the tools and services that currently run your business. This helps Tech Smart build the right system for you and spot places where we can simplify, consolidate, and serve you better. Take your time — there are no wrong answers.</p>
+  <div class="meta-row">
+    <span>For <strong>The Reality of Fitness</strong></span>
+    <span>By <strong>Tech Smart Inc.</strong></span>
+    <span>Date <strong id="today"></strong></span>
+  </div>
+</div>
+
+<form id="auditForm" action="https://formspree.io/f/xojblkkk" method="POST" class="body">
+
+  <!-- 1 WEB -->
+  <div class="section">
+    <div class="section-num">01</div>
+    <div class="section-title">Your Web Presence</div>
+    <p class="section-desc">Where your website lives today and who looks after it.</p>
+
+    <div class="field">
+      <label class="field-label">Where is your domain registered? (e.g. GoDaddy, Squarespace, Wix, Network Solutions)</label>
+      <input class="fi" name="domain_registrar" placeholder="Domain registrar">
+    </div>
+    <div class="row">
+      <div class="field">
+        <label class="field-label">What do you pay for the domain, and how often?</label>
+        <input class="fi" name="domain_cost" placeholder="e.g. $20/year">
+      </div>
+      <div class="field">
+        <label class="field-label">Who hosts your website?</label>
+        <input class="fi" name="web_host" placeholder="e.g. Squarespace, Wix, GoDaddy">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label class="field-label">What do you pay for hosting per month?</label>
+        <input class="fi" name="host_cost" placeholder="e.g. $26/month">
+      </div>
+      <div class="field">
+        <label class="field-label">Who built / currently manages the site?</label>
+        <input class="fi" name="site_manager" placeholder="You, a developer, etc.">
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Any other domains or websites you own?</label>
+      <input class="fi" name="other_domains" placeholder="List any others">
+    </div>
+  </div>
+
+  <!-- 2 FORMS & LINKS -->
+  <div class="section">
+    <div class="section-num">02</div>
+    <div class="section-title">Forms & Links</div>
+    <p class="section-desc">The tools you use to take applications, bookings, and share links.</p>
+
+    <div class="row">
+      <div class="field">
+        <label class="field-label">JotForm — what plan / what do you pay monthly?</label>
+        <input class="fi" name="jotform_cost" placeholder="e.g. $49/month">
+      </div>
+      <div class="field">
+        <label class="field-label">Linktree — free or paid? Monthly cost?</label>
+        <input class="fi" name="linktree_cost" placeholder="e.g. $9/month or free">
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Any other link tools or shorteners you pay for? (tr.ee, bit.ly, etc.)</label>
+      <input class="fi" name="link_tools" placeholder="List tools + cost if known">
+    </div>
+    <div class="field">
+      <label class="field-label">Any other forms, scheduling, or booking tools?</label>
+      <input class="fi" name="other_forms" placeholder="Calendly, Acuity, etc.">
+    </div>
+  </div>
+
+  <!-- 3 PAYMENTS -->
+  <div class="section">
+    <div class="section-num">03</div>
+    <div class="section-title">Payments</div>
+    <p class="section-desc">How you collect money from clients today.</p>
+
+    <div class="row">
+      <div class="field">
+        <label class="field-label">Who is your payment processor?</label>
+        <input class="fi" name="processor" placeholder="Square, Stripe, PayPal, etc.">
+      </div>
+      <div class="field">
+        <label class="field-label">What percentage do they take per transaction?</label>
+        <input class="fi" name="processor_pct" placeholder="e.g. 2.9% + 30¢">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label class="field-label">Any monthly or flat fees?</label>
+        <input class="fi" name="processor_monthly" placeholder="e.g. $10/month or none">
+      </div>
+      <div class="field">
+        <label class="field-label">How do payouts reach you?</label>
+        <input class="fi" name="payout" placeholder="Bank deposit, instant, etc.">
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">How do clients usually pay — in person, online, or both?</label>
+      <input class="fi" name="payment_methods" placeholder="In person, online, both">
+    </div>
+  </div>
+
+  <!-- 4 CONNECTIVITY & DEVICES -->
+  <div class="section">
+    <div class="section-num">04</div>
+    <div class="section-title">Connectivity & Devices</div>
+    <p class="section-desc">The internet, phone, and equipment that keep you running — so we can assess managed-service options.</p>
+
+    <div class="row">
+      <div class="field">
+        <label class="field-label">Internet carrier?</label>
+        <input class="fi" name="internet_carrier" placeholder="Comcast, AT&T, etc.">
+      </div>
+      <div class="field">
+        <label class="field-label">Internet speed (if you know it)?</label>
+        <input class="fi" name="internet_speed" placeholder="e.g. 300 Mbps">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label class="field-label">What do you pay for internet monthly?</label>
+        <input class="fi" name="internet_cost" placeholder="e.g. $80/month">
+      </div>
+      <div class="field">
+        <label class="field-label">Modem / router — do you rent it or own it?</label>
+        <div class="pill-row" data-group="modem">
+          <label class="pill"><input type="radio" name="modem_status" value="Rent"> Rent</label>
+          <label class="pill"><input type="radio" name="modem_status" value="Own"> Own</label>
+          <label class="pill"><input type="radio" name="modem_status" value="Not sure"> Not sure</label>
+        </div>
+        <span class="field-helper">If you rent, roughly how much? (often $10–15/mo)</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label class="field-label">Phone carrier?</label>
+        <input class="fi" name="phone_carrier" placeholder="Verizon, T-Mobile, AT&T, etc.">
+      </div>
+      <div class="field">
+        <label class="field-label">How many lines, and monthly cost?</label>
+        <input class="fi" name="phone_cost" placeholder="e.g. 1 line, $85/month">
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 SOFTWARE -->
+  <div class="section">
+    <div class="section-num">05</div>
+    <div class="section-title">Software & Subscriptions</div>
+    <p class="section-desc">Anything else you pay for monthly or yearly to run the business.</p>
+
+    <div class="field">
+      <label class="field-label">Email service (Google Workspace, Outlook, etc.) + cost?</label>
+      <input class="fi" name="email_service" placeholder="e.g. Google Workspace $6/mo">
+    </div>
+    <div class="field">
+      <label class="field-label">Design tools (Canva, Adobe, etc.) + cost?</label>
+      <input class="fi" name="design_tools" placeholder="e.g. Canva Pro $13/mo">
+    </div>
+    <div class="field">
+      <label class="field-label">Any other recurring software or tech subscriptions?</label>
+      <textarea class="ft" name="other_software" placeholder="List anything else you pay for — even small ones add up"></textarea>
+    </div>
+  </div>
+
+  <!-- 6 SOCIAL & NOTES -->
+  <div class="section">
+    <div class="section-num">06</div>
+    <div class="section-title">Social & Anything Else</div>
+    <p class="section-desc">Your social handles and anything we should know.</p>
+
+    <div class="field">
+      <label class="field-label">Social media handles (Instagram, Facebook, YouTube, TikTok)</label>
+      <textarea class="ft" name="social_handles" placeholder="Paste your handles or links"></textarea>
+    </div>
+    <div class="field">
+      <label class="field-label">Anything else you pay for, or any tech headaches you'd love solved?</label>
+      <textarea class="ft" name="notes" placeholder="Tell us what frustrates you — that's where we start."></textarea>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label class="field-label">Your name</label>
+        <input class="fi" name="contact_name" value="Issac D. Coleman">
+      </div>
+      <div class="field">
+        <label class="field-label">Best phone or email to reach you</label>
+        <input class="fi" name="contact_info" placeholder="Phone or email">
+      </div>
+    </div>
+  </div>
+
+  <div class="submit-row">
+    <button type="submit" class="submit-btn">Send to Tech Smart Inc.</button>
+    <p class="submit-note">Your answers go privately to Eric Armstrong at Tech Smart Inc. We'll review and follow up with a tailored plan.</p>
+  </div>
+
+</form>
+
+<!-- success -->
+<div class="ok" id="ok">
+  <div class="ok-in">
+    <div class="ok-check">✓</div>
+    <h2>Thank you, <span id="okName">Issac</span>.</h2>
+    <p>Your onboarding review is in. Eric Armstrong at Tech Smart Inc. will go through it and follow up with a tailored plan to simplify your systems and serve you better.</p>
+    <div class="mk">TECH SMART INC.</div>
+  </div>
+</div>
+
+<div class="foot">Prepared by Tech Smart Inc. · Managed Services · Confidential</div>
+
+<script>
+document.getElementById('today').textContent=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+
+// pill radios
+document.querySelectorAll('[data-group]').forEach(g=>{
+  g.querySelectorAll('.pill').forEach(p=>{
+    p.addEventListener('click',()=>{
+      g.querySelectorAll('.pill').forEach(x=>x.classList.remove('active'));
+      p.classList.add('active');
+      p.querySelector('input').checked=true;
+    });
+  });
+});
+
+document.getElementById('auditForm').addEventListener('submit',async(e)=>{
+  e.preventDefault();
+  const form=e.target;
+  const fd=new FormData(form);
+  fd.set('_subject','ROF Audit — Issac Coleman onboarding review');
+  try{
+    const r=await fetch(form.action,{method:'POST',body:fd,headers:{'Accept':'application/json'}});
+    if(r.ok){
+      const n=(document.querySelector('[name=contact_name]').value||'there').trim().split(' ')[0];
+      document.getElementById('okName').textContent=n;
+      document.getElementById('ok').classList.add('show');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }else{alert('Something went wrong submitting. Please try again or call Eric directly.');}
+  }catch(err){alert('Network error — please try again.');}
+});
+</script>
+
+</body>
+</html>
